@@ -1,0 +1,38 @@
+{
+  "name": "npmScript-create-workflow",
+  "version": "1.0.0",
+  "description": "使用 npm script 打造前端工作流程",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo Error:no test!!! ",
+    "css:autoprefixer": "postcss -u autoprefixer -r dist/css/*",
+    "css:compress": "csso src/css/index.css -o dist/css/index.min.css",
+    "js:uglify": "uglifyjs src/js/index.js -o dist/js/index.min.js",
+    "image:imagemin": "imagemin src/images/* -o dist/images",
+    "server": "browser-sync start --server --files './index.html,dist/css/*.css, dist/js/*.js'",
+    "watch:css": "watch -p \"src/css/*.css\" -c \"npm run css:compress\"",
+    "watch:js": "watch -p \"src/js/*.js\" -c \"npm run js:uglify\"",
+    "start": "mkdir src dist && cd src && mkdir js css images && cd .. && cd dist && mkdir css js images && cd .. && npm run server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zh-yang/npmScript-create-workflow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zh-yang/npmScript-create-workflow/issues"
+  },
+  "homepage": "https://github.com/zh-yang/npmScript-create-workflow#readme",
+  "dependencies": {
+    "autoprefixer": "^7.1.6",
+    "browser-sync": "^2.18.13",
+    "csso-cli": "^1.1.0",
+    "imagemin-cli": "^3.0.0",
+    "onchange": "^3.2.1",
+    "postcss": "^6.0.14",
+    "uglify-js": "^3.1.8",
+    "watch-cli": "^0.2.3"
+  }
+}
